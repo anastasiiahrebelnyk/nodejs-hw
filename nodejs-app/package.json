@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "src/server",
-    "start": "src/server"
+    "dev": "nodemon src/server",
+    "start": "node src/server"
   },
   "keywords": [],
   "author": "Anastasiia Hrebelnyk <anastasiiahrebelnyk@gmail.com>",
