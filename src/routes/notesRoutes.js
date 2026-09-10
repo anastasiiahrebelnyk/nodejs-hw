@@ -7,16 +7,16 @@ import {
   updateNote,
 } from '../controllers/notesController.js';
 
-const postsRouter = Router();
+const notesRouter = Router();
 
-postsRouter.get('/', getAllNotes);
+notesRouter.get('/notes/', getAllNotes);
 
-postsRouter.get('/:noteId', getNoteById);
+notesRouter.get('/notes/:noteId', getNoteById);
 
-postsRouter.post('/', createNote);
+notesRouter.post('/notes/', createNote);
 
-postsRouter.patch('/:noteId', updateNote);
+notesRouter.patch('/notes/:noteId', updateNote);
 
-postsRouter.delete('/:noteId', deleteNote);
+notesRouter.delete('/notes/:noteId', deleteNote);
 
-export default postsRouter;
+export default notesRouter;
