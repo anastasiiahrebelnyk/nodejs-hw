@@ -6,7 +6,7 @@ import connectDatabase from './db/connectMongoDB.js';
 import logger from './middleware/logger.js';
 import notFoundHandler from './middleware/notFoundHandler.js';
 import errorHandler from './middleware/errorHandler.js';
-import postsRouter from './routes/notesRouter.js';
+import postsRouter from './routes/notesRoutes.js';
 
 const app = express();
 
