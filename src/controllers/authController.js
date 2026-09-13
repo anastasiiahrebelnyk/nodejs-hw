@@ -60,6 +60,11 @@ export const logoutUser = async (req, res) => {
   const { sessionId } = req.cookies;
   const session = await Session.findOne({ _id: sessionId });
   if (!session) {
+    res.clearCookie('sessionId');
+    res.clearCookie('accessToken');
+
+    res.clearCookie('refreshToken');
+    res.status(204).send();
     throw createHttpError(401, 'Session not found');
   }
   await Session.deleteOne({ _id: sessionId });
