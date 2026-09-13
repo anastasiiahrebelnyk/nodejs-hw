@@ -1,4 +1,5 @@
 export const TAGS = [
+  'Todo',
   'Work',
   'Personal',
   'Meeting',
@@ -8,5 +9,4 @@ export const TAGS = [
   'Finance',
   'Health',
   'Important',
-  'Todo',
 ];

@@ -12,10 +12,10 @@ export const getAllNotesSchema = {
   [Segments.QUERY]: Joi.object({
     page: Joi.number().integer().min(1).default(1),
     perPage: Joi.number().integer().min(5).max(20).default(10),
-    sortBy: Joi.string()
-      .valid(...TAGS)
-      .default('_id'),
-    sortOrder: Joi.string().valid('asc', 'desc').default('asc'),
+    // sortBy: Joi.string()
+    // .valid(...TAGS)
+    // .default('_id'),
+    // sortOrder: Joi.string().valid('asc', 'desc').default('asc'),
     tag: Joi.string().valid(...TAGS),
     search: Joi.string(),
   }),
@@ -36,7 +36,7 @@ export const createNoteSchema = {
 
 export const noteIdSchema = {
   [Segments.PARAMS]: Joi.object({
-    id: idSchema.required(),
+    noteId: idSchema.required(),
   }),
 };
 

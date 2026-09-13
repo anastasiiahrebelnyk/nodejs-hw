@@ -16,13 +16,11 @@ const noteSchema = new Schema(
     },
     tag: {
       type: String,
-      default: 'Todo',
+      default: TAGS[0],
       enum: TAGS,
     },
   },
   { versionKey: false, timestamps: true },
 );
 
-const Note = model('Note', noteSchema);
-
-export default Note;
+export const Note = model('Note', noteSchema);
