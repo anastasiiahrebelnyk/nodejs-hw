@@ -16,12 +16,12 @@ import {
 
 const notesRouter = Router();
 
-notesRouter.get('/notes/', celebrate(getAllNotesSchema), getAllNotes);
+notesRouter.get('/notes', celebrate(getAllNotesSchema), getAllNotes);
 
 notesRouter.get('/notes/:noteId', celebrate(noteIdSchema), getNoteById);
 
 notesRouter.post(
-  '/notes/',
+  '/notes',
   celebrate(createNoteSchema, { abortEarly: false }),
   createNote,
 );
