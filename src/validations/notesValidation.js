@@ -39,11 +39,9 @@ export const noteIdSchema = {
 };
 
 export const updateNoteSchema = {
-  [Segments.PARAMS]: noteIdSchema,
+  [Segments.PARAMS]: Joi.object({ noteId: idSchema.required() }),
   [Segments.BODY]: Joi.object({
-    title: Joi.string().min(1).messages({
-      'any.required': 'title must be exist',
-    }),
+    title: Joi.string().min(1),
     content: Joi.string().allow(''),
     tag: Joi.string().valid(...TAGS),
   }).min(1),
