@@ -27,7 +27,7 @@ export const createNoteSchema = {
       'any.required': 'title must be exist',
       'base.string': 'title must be string',
     }),
-    content: Joi.string(),
+    content: Joi.string().allow(''),
     tag: Joi.string().valid(...TAGS),
   }),
 };
