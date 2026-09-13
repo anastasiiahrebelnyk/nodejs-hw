@@ -9,7 +9,7 @@ import notesRouter from './routes/notesRoutes.js';
 import { logger } from './middleware/logger.js';
 import { errors } from 'celebrate';
 import cookieParser from 'cookie-parser';
-import { authRouter } from './routes/authRoutes.js';
+import authRouter from './routes/authRoutes.js';
 
 const app = express();
 

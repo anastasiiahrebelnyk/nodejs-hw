@@ -8,7 +8,7 @@ export const registerUser = async (req, res) => {
   const { email, password } = req.body;
   const existingUser = await User.findOne({ email });
   if (existingUser) {
-    throw createHttpError(409, 'Email in use');
+    throw createHttpError(400, 'Email in use');
   }
   const hashPassword = await bcrypt.hash(password, 10);
   const newUser = await User.create({ ...req.body, password: hashPassword });
@@ -37,12 +37,15 @@ export const loginUser = async (req, res) => {
 };
 
 export const refreshUserSession = async (req, res) => {
-  const { sessionId } = req.cookies;
-  const session = await Session.findOne({ _id: sessionId });
+  const { refreshToken, sessionId } = req.cookies;
+  const session = await Session.findOne({ _id: sessionId, refreshToken });
   if (!session) {
     throw createHttpError(401, 'Session not found');
   }
   if (session.refreshTokenValidUntil < new Date()) {
+    res.clearCookie('sessionId');
+    res.clearCookie('accessToken');
+    res.clearCookie('refreshToken');
     throw createHttpError(401, 'Session token expired');
   }
   await Session.deleteOne({ _id: sessionId });
