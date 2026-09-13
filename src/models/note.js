@@ -16,8 +16,13 @@ const noteSchema = new Schema(
     },
     tag: {
       type: String,
-      default: TAGS[0],
+      // default: TAGS[0],
       enum: TAGS,
+    },
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
     },
   },
   { versionKey: false, timestamps: true },
