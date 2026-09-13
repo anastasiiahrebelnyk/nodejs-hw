@@ -17,7 +17,7 @@ export const getAllNotesSchema = {
     // .default('_id'),
     // sortOrder: Joi.string().valid('asc', 'desc').default('asc'),
     tag: Joi.string().valid(...TAGS),
-    search: Joi.string(),
+    search: Joi.string().allow(''),
   }),
 };
 
@@ -28,9 +28,7 @@ export const createNoteSchema = {
       'base.string': 'title must be string',
     }),
     content: Joi.string(),
-    tag: Joi.string()
-      .valid(...TAGS)
-      .default(TAGS[0]),
+    tag: Joi.string().valid(...TAGS),
   }),
 };
 
@@ -46,7 +44,7 @@ export const updateNoteSchema = {
     title: Joi.string().min(1).messages({
       'any.required': 'title must be exist',
     }),
-    content: Joi.string(),
+    content: Joi.string().allow(''),
     tag: Joi.string().valid(...TAGS),
   }).min(1),
 };
