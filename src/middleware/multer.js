@@ -8,7 +8,7 @@ export const upload = multer({
   fileFilter: (req, file, cb) => {
     const allowedTypes = file.mimetype.startsWith('image/');
 
-    if (allowedTypes.includes(file.mimetype)) {
+    if (allowedTypes) {
       cb(null, true);
     } else {
       cb(
