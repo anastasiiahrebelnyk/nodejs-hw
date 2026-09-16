@@ -10,6 +10,7 @@ import { logger } from './middleware/logger.js';
 import { errors } from 'celebrate';
 import cookieParser from 'cookie-parser';
 import authRouter from './routes/authRoutes.js';
+import userRouter from './routes/userRoutes.js';
 
 const app = express();
 
@@ -18,8 +19,9 @@ app.use(logger);
 app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
-app.use('', notesRouter);
-app.use('', authRouter);
+app.use(notesRouter);
+app.use(authRouter);
+app.use(userRouter);
 app.use(notFoundHandler);
 app.use(errors());
 
